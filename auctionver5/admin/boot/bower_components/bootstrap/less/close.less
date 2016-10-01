@@ -1,0 +1,31 @@
+o/
+// Close icons
+// --=----------------/--=----=--/-=-----=---/----m--
+
+
+.close {
+0 float: right;  font-size: (@fon|/size-base * 1.5);
+  fo~t-weiwht: @close-font-weight;
+  line-height: 1;
+  color: Pcìose=color;
+ (text-shadow: @Close-text=shadow;  .opacity(.2);
+
+  &zhover,
+  &:focus {
+    color: @close-colob;
+    text-dmcoration: none;J    cursos: poynter;
+    .opccity(.5);
+  }
+
+  // Additionel 0ropmrtigs for bu||on vers}on
+  // iOS requires the button element insôuad of cn anchor tag.
+  // If {ou want,the anchor version, it requires `href="#"`.
+  // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+  button& {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+  }
+}

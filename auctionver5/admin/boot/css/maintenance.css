@@ -1,0 +1,324 @@
+html 
+{
+  width: 100%; 
+  height:100%;
+  overflow:hidden;
+}
+
+body 
+{
+	background: url('image/Y1.jpg') 50% no-repeat fixed;
+	background: -webkit-filter:blur(50px);
+  filter: blur(30px) saturate(20); 
+  background-size: cover;
+  font: 18px/1.4 'HelveticaNeueLT Std Lt'; 
+  font: 'Raleway';
+}
+
+.header 
+{
+  position:absolute;
+  top: 0;
+  left:0;
+  width:100%;
+  margin:0px auto 0 auto;
+  padding:20px;
+  background:  -webkit-gradient(linear, left top, left bottom,  color-stop(0%,#e5e3e5), color-stop(100%,#cecdce));
+  background: rgba(0, 0, 0, 0.5);
+  color:black;
+  box-sizing: border-box;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+}
+.headerGroup
+{
+  position: absolute;
+  width: 11%;
+  height: 100%;
+  border: 10px;
+  border-color: white;
+  background: #111111;
+}
+.headerGroup:hover
+ {
+   background: #0054a6;
+   -webkit-transform: scale(1.110);
+    -moz-transform: scale(1.110);
+    -o-transform: scale(1.110);
+ }
+ /* for text button in navigation */
+.navList 
+{
+  color: whitesmoke;
+  position: absolute;
+  font-size: 85%;
+  font-family: 'HelveticaNeueLT Std Lt';
+  font-family: 'Raleway';
+  font-family: 'Segoe UI Light';
+  font-weight: bold;
+  border: none;
+  background: none;
+  position: absolute;
+ }
+ 
+ 
+ /*for icon in navigation tab */
+.navIcon
+{
+  
+  background: none;
+  background-size: 15% 50%;
+  background-repeat: no-repeat;
+  
+  width: 15%;
+  height: 50%;
+  padding: 0px;
+  position: absolute;
+  border: 2px;
+  border-color: black;
+
+}
+
+.logout
+{
+      background:none;
+      position: absolute;
+      border: none;
+      left: 94%;
+      top: 18%; 
+      display: block;
+      font-size: 15;
+      font-family: 'HelveticaNeueLT Std Lt';
+       font-family: 'Raleway';
+        font-family: 'Segoe UI Light';
+      font-weight: bold;
+      color:whitesmoke;
+      margin-bottom:12px;
+      line-height: 1.25 * 1.5rem; }
+
+.pageName
+{
+  font-family: 'Raleway';
+        font-family: 'Segoe UI Light';
+      font-weight: bold;
+      color:whitesmoke;
+       font-size: 150%;
+}
+
+/* Previous Menu */
+
+.vertMenu{   overflow: hidden;  width: 80%; }
+.vertMenu li{  float: left; }
+.vertMenu button{
+  padding: 5px 17px 5px 37px;
+  float: left; text-align:center;
+  font: normal 16px Segoe UI Light;  
+  color: black;
+  position: relative; text-shadow:1px 0 0 #000;
+  background: #EEEEEE;  min-width:10%; width:auto;
+  border: none;
+}
+
+.vertMenu button::after,
+.vertMenu button::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;   
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 1em solid;
+  right: -1em;
+
+}
+.vertMenu button::after{   z-index: 2;  border-left-color: #EEEEEE;   }
+
+/*Current Menu*/
+
+.vertMenuNext{   overflow: hidden;  width: 80%; }
+.vertMenuNext li{  float: left; }
+.vertMenuNext button{
+  padding: 8px 20px 8px 40px;
+  float: left; text-align:center;
+  text-decoration: none; font: normal 16px Myriad Pro, Helvetica, Arial, sans-serif;  text-shadow:0px 1px 0px #000;
+  color: #e6e2cf;
+  position: relative; text-shadow:1px 0 0 #000;
+  background: black;  min-width:10%; width:auto;
+  border: none;
+}
+
+.vertMenuNext button::after,
+.vertMenuNext button::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -19px;   
+  border-top: 19px solid transparent;
+  border-bottom: 19px solid transparent;
+  border-left: 1em solid;
+  right: -1em;
+
+}
+.vertMenuNext button::after{   z-index: 2;  border-left-color: black;   }
+
+   
+/*
+.navigation
+{
+      color: whitesmoke;
+  position: absolute;
+  font-size: 120%;
+  font-family: 'HelveticaNeueLT Std Lt';
+  font-family: 'Raleway';
+  font-family: 'Segoe UI Light';
+  font-weight: bold;
+  border: none;
+  background: none;
+  position: absolute;
+      
+} */
+
+/* ---------- FOR LABEL -------*/
+.lblDash
+{
+
+   position: absolute;
+      left: 1%;
+      top: 1%;
+      display: block;
+      font-size: 16;
+      font-family: 'HelveticaNeueLT Std Lt';
+       font-family: 'Raleway';
+      font-weight: bolder;
+      color:#333333;
+      margin-bottom:10px;
+      line-height: 1.25 * 1.5rem;
+}
+.title {
+      position: absolute;
+      left: 1%;
+      top: 17%;
+      display: block;
+      font-size: 16;
+      font-family: 'HelveticaNeueLT Std Lt';
+       font-family: 'Raleway';
+      font-weight: bolder;
+      color:#333333;
+      margin-bottom:10px;
+      line-height: 1.25 * 1.5rem; }
+
+
+h1 {
+    text-shadow: rgba(255,255,255, .7) 0px 0px 10px;
+    font-size: 2em;
+  }
+  img {
+    border: 0;
+  }
+
+
+.list
+{     color: black;
+      position: absolute;
+      font-size: 80%;
+      font-family: 'HelveticaNeueLT Std Lt';
+       font-family: 'Raleway';
+      
+      font-weight: bold;
+     
+      border: none;
+    background: none;
+    position: absolute;
+      
+}
+
+.list:hover
+{
+  color: #0054a6;
+  
+}
+
+.sampleIcon
+{
+    background: none;
+  background-size: 8% 10%;
+  background-repeat: no-repeat;
+  position: ;
+  width: 8%;
+  height: 10%;
+  position: absolute;
+ 
+
+}
+
+
+
+.finder-window{
+ 
+  width: 36%;
+  
+  display: block;
+  overflow: hidden;
+  
+}
+
+.top-bar{
+  display: block;
+  height: 7%;
+  width: 28%;
+  text-align: center;
+  
+  background:  -webkit-gradient(linear, left top, left bottom,  color-stop(0%,#e5e3e5), color-stop(100%,#cecdce));
+  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom: 1px solid #8E8E8F;
+   background: rgba(0, 0, 0, 0.5);
+ color:black;
+  box-sizing: border-box;
+  backdrop-filter: blur(30px);
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+   
+}
+
+h2
+{
+       position: relative;
+      left: 5%;
+      top: 5%;
+      font-size: 95%;
+      font-family: 'HelveticaNeueLT Std Lt';
+      font-family: 'Raleway';
+      font-weight: lighter;
+      color:whitesmoke;
+}
+
+
+
+
+.sidebar{
+
+  border-right: 1px solid #8E8E8F;
+  display: block;
+  background-color: #EEEEEE;
+  width: 100%;
+  
+  overflow: hidden;
+  //-webkit-filter:blur(2px);
+  //filter: blur(30px) saturate(20);
+  opacity:.35;
+  
+  
+   backdrop-filter: blur(30px);
+   border-radius: 10px;
+    border-top-left-radius: 0px;
+}
+
+.hr
+{ 
+  top: 10%;
+ 
+  
+}
