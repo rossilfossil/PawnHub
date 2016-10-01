@@ -29,9 +29,16 @@
 							<label class="black-text" for="auctionperiod">Maximum Auction Period (in days)</label>
 						</div>
 					</div>
+					<div class="row" style="margin-left:.2%;">		
+						<div class="input-field col l4 m6 s12">
+							<!-- DEADLINE PERIOD (in days) -->
+							<input name="maxitems" id="maxitems" type="number" value="<?php echo $auctionperiod?>" class="validate" onkeyup="validateNumberOnly(this.value,'auctionperiod')" min="1" max="30" step="1"  required>
+							<label class="black-text" for="maxitems">Maximum Items per Auction</label>
+						</div>
+					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input class="btn black white-text right" type="submit" name="submit" value="Update">
+							<input class="btn black white-text" type="submit" name="submit" value="Update">
 						</div>
 					</div>
 				</form>

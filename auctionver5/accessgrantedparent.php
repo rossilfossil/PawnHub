@@ -1,3 +1,7 @@
+<?php
+	include_once("connect_to_pms.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +30,8 @@
 					<a href='../AuctionVer5' > <label class="sys"> PAWNSHOP AUCTION SYSTEM</label> </a>
 					<li><a href="../AuctionVer5"><i class="material-icons left">home</i>Home</a></li>
 					<!-- <li><a href="bids.php"><i class="material-icons left">account_circle</i>My Bids</a></li> -->
-					<li><a href="#!" class="dropdown-button" data-beloworigin="true" data-activates="dropdown_options"><i class="material-icons left">account_circle</i>My Account</a></li>
 					<li><a href="cart.php"><i class="material-icons left">shopping_cart</i>Cart</a></li>
+					<li><a href="#!" class="dropdown-button" data-beloworigin="true" data-activates="dropdown_options"><i class="material-icons left">account_circle</i><?php echo $_SESSION['userName']?></a></li>
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
 				<ul class="right side-nav" id="side-nav">

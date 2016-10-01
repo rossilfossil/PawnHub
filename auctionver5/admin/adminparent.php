@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>PMS - Auction System</title>
-	<!-- <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css"> -->
-  	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="../../icon/material-design-icons-2.2.0/iconfont/material-icons.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../css/style.css"> 
 	<link rel="stylesheet" type="text/css" href="../css/materialize.css">	

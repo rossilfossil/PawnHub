@@ -9,9 +9,10 @@
 	if (!mysql_num_rows($sql)==0){
 		while($get_row = mysql_fetch_assoc($sql)){
 			$itemid = $get_row['item_ID'];
-			$itemsql = "SELECT * FROM tbl_Images where item_ID = $itemid";
+			$itemsql = "SELECT * FROM tbl_Images where item_ID = $itemid AND deleted = 0";
 			$numimg = mysql_num_rows(mysql_query($itemsql));
 		?>
+
 				<div class="row">
 					<div class="input-field col l4 s12">
 						<input name="text2" type="text" class="black-text" value="<?php echo $get_row['itemName']?>" DISABLED>
@@ -36,7 +37,8 @@
 				$sql2=mysql_query($itemsql);
 				while($get_img = mysql_fetch_assoc($sql2)){
 					// ?>
-					<img src="../uploads/<?php echo $get_img['item_image']?>" border="1" height="100px" width="100px">
+					<img class="hoverable" src="../uploads/<?php echo $get_img['item_image']?>" height="100px" width="100px" onclick="removePic(<?php echo $get_img['image_ID']?>);">
+					<!-- <div class="image"><a href="#">Shit happens</a></div> -->
 					<?php
 				}
 			}
@@ -52,7 +54,7 @@
 				<form action="" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="itemid" class="black-text" value="<?php echo $get_row['item_ID']?>">
 					<input type="file" name="fileToUpload" id="fileToUpload" required>
-					<button class="btn black white-text" type="submit" name="submit">Submit</button>
+					<button class="btn black white-text" type="submit" name="submit">Upload</button>
 				</form>
 			</center>
 			<?php

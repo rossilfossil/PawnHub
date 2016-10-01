@@ -111,16 +111,16 @@
 </center>
    <script>
 
-var password = document.getElementById("password1");
-  var confirm_password = document.getElementById("password");
+	var password = document.getElementById("password1");
+	var confirm_password = document.getElementById("password");
 
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
-}
+	function validatePassword(){
+		if(password.value != confirm_password.value) {
+			confirm_password.setCustomValidity("Passwords Don't Match");
+		} else {
+			confirm_password.setCustomValidity('');
+		}
+	}
 
 password1.onchange = validatePassword;
 password.onkeyup = validatePassword;
@@ -145,8 +145,11 @@ password.onkeyup = validatePassword;
 			
 			$get = mysql_fetch_assoc(mysql_query("SELECT * FROM tbl_Bidders ORDER BY bidder_ID DESC LIMIT 1"));
 			$id = $get['bidder_ID'];
+			$name = $get['bidder_username'];
+
 
 			$_SESSION['userId'] = $id;
+			$_SESSION['userName'] = $name;
 			if(isset($_SESSION['redirect'])){
 				$redirect = $_SESSION['redirect'];
 			}

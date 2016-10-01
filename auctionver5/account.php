@@ -129,9 +129,9 @@
 <?php
     if(isset($_POST['submit'])){
         echo "shit";
-        $firstname = ucwords(strtolower(trim($_POST['firstname'])));
-        $middlename = ucwords(strtolower(trim($_POST['middlename'])));
-        $lastname = ucwords(strtolower(trim($_POST['lastname'])));
+        $firstname = addslashes(htmlspecialchars(ucwords(strtolower(trim($_POST['firstname'])))));
+        $middlename = addslashes(htmlspecialchars(ucwords(strtolower(trim($_POST['middlename'])))));
+        $lastname = addslashes(htmlspecialchars(ucwords(strtolower(trim($_POST['lastname'])))));
         $province = trim($_POST['province']);
         $city = trim($_POST['city']);
         $barangay = ucwords(strtolower(trim($_POST['barangay'])));

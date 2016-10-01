@@ -18,12 +18,15 @@
 				$dbusername = $row['bidder_username'];
 				$dbpassword = $row['bidder_password'];
 				$id = $row['bidder_ID'];
+				$name = $row['bidder_username'];
 			}
 
 			if($user == $dbusername && $pass == $dbpassword)
 			{
 				$_SESSION['sess_user'] = $user;
 				$_SESSION['userId'] = $id;
+				$_SESSION['userName'] = $name;
+
 				if(isset($_SESSION['redirect'])){
 					$redirect = $_SESSION['redirect'];
 				}

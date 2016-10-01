@@ -93,7 +93,7 @@ $(document).ready(function(){
 		<div class="modal modal-width1" id="addModal">
 			<div class="modal-content">
 				<div class="modal-header center">
-					<h5>Add Category</h5>
+					<h5>Add Subcategory</h5>
 				</div>
 				<div class="divider black"></div>
 				<form action="" method="POST" enctype="multipart/form-data">

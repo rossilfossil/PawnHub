@@ -9,6 +9,10 @@
 	if(mysql_num_rows($get)==0){
 		echo "<script>alert('No items available for auction')</script>";
 	}
+
+		$sql = mysql_fetch_assoc(mysql_query("SELECT * FROM tbl_biddingConstants WHERE bc_ID = 1"));
+		$deadlineperiod = $sql['deadline_period'];
+		$deadlineamount = $deadlineperiod/24;
 ?>
 <script type="text/javascript" src="validation.js"></script>
 <script type="text/javascript" src="maximumAuctionPeriod.js"></script>
@@ -40,7 +44,22 @@ $(document).ready(function(){
 <script type="text/javascript" src="getPricing.js"></script>
 <script type="text/javascript" src="getAuctionType.js"></script>
 <script type="text/javascript" src="getItem.js"></script>
+<script type="text/javascript">
+/*	function viewDeadline(){
+    	// dat.setDate(document.getElementById('deaddate').value + <?php echo $deadlineperiod?>);
+    	Date.prototype.addDays = function(days){
+			var dat = new Date(this.valueOf());
+			dat.setDate(dat.getDate() + days);
+			return dat;
+		}
 
+		var dat = new Date();
+
+		alert(dat.addDays(<?php echo $deadlineamount?>))
+		var dat = new Date(this.valueOf());
+		document.getElementById('deaddate').value=dat
+	}*/
+</script>
  <!-- Modal Structure -->
   <div id="itemModal" class="modal">
     <div class="modal-content">
@@ -59,7 +78,14 @@ $(document).ready(function(){
 	
 	<div class="row">
 	<div class="col l12">
-	<h4><center>CREATE LISTING</center></h4>
+	<div class="row">
+		<div class="col l1">
+		<br><a class="btn black white-text" href="auctionlistings.php">Back</a>
+		</div>
+		<div class="col l11 push-l3">
+			<h4>CREATE LISTING</h4>
+		</div>
+	</div>
 	<div class="black divider"></div>
 	<div class="card-panel  blue-grey lighten-5">
     		<div class="row">
@@ -220,7 +246,9 @@ $(document).ready(function(){
 			<h5>END</h5>
 				<br>
 	    	<div class="input-field col l6 m6 s12">
-				<input name="enddate" id="enddate" min="<?php echo date('Y-m-d');?>" onchange="document.getElementById('startdate').max=this.value" type="date" class="validate">
+				<!-- <input name="enddate" id="enddate" min="<?php //echo date('Y-m-d');?>" onchange="document.getElementById('startdate').max=this.value;viewDeadline()" type="date" class="validate"> -->
+				<input name="enddate" id="enddate" min="<?php echo date('Y-m-d');?>" onchange="document.getElementById('startdate').max=this.value;" type="date" class="validate">
+
 				<label class="black-text active" for="enddate">End Date</label>
 			</div>
 	    	<div class="input-field col l6 m6 s12">
@@ -228,6 +256,21 @@ $(document).ready(function(){
 				<label class="black-text active" for="endtime">End Time</label>
 			</div>
 		</div>
+
+
+		<!-- <div class="row">
+		<div class="black divider"></div>	
+			<h5>DEADLINE</h5>
+				<br>
+	    	<div class="input-field col l6 m6 s12">
+				<input name="deaddate" id="deaddate" min="<?php //echo date('Y-m-d');?>" type="date" class="black-text validate" disabled>
+				<label class="black-text active" for="deaddate">Deadline Date</label>
+			</div>
+	    	<div class="input-field col l6 m6 s12">
+				<input name="deadtime" id="deadtime" type="time" class="black-text validate" disabled>
+				<label class="black-text active" for="deadtime">Deadline Time</label>
+			</div>
+		</div> -->
 	    <!--
 		<div class="black divider"></div>	
 		<div class="row">
@@ -310,6 +353,20 @@ $(document).ready(function(){
 		$starttime = $_POST['starttime'];
 		$enddate = $_POST['enddate'];
 		$endtime = $_POST['endtime'];
+		if(strtotime($startdate) == strtotime(date("Y-m-d"))){
+			if(strtotime($starttime) < strtotime(date("H:i:s"))){
+				echo "<script>alert('Starting time already started')</script>";
+				return;
+			}
+		}
+
+		if(strtotime($startdate) == strtotime($enddate)){
+			if(strtotime($starttime) > strtotime($endtime)){
+				echo "<script>alert('Starting Time should be later than Ending Time')</script>";
+				return;
+			}
+		}
+
 		$deadline_date = date("Y-m-d",strtotime("+$deadlineperiod hours",strtotime($enddate)));
 		$deadline_time = $endtime;
 		$subcat = $_POST['subcat'];
@@ -330,20 +387,10 @@ $(document).ready(function(){
 		}
 		unset($_SESSION['item_stack']);
 		echo "<script>
-		Materialize.toast('Listing Added!',4000,'black');
-
+			alert('New Listing Created!')
+			window.location = 'auctionlistings.php';
 		</script>
 		";
 		}
 //	}
-
-		if(isset($_POST['back'])){
-
-		echo "<script>
-		Materialize.toast('Listing Added!',4000,'black')
-		window.location = 'auctionlistings.php';
-		</script>
-		";			
-		}
-		// put 2 sec timer here
 ?>
