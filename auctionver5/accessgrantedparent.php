@@ -35,10 +35,11 @@
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
 				<ul class="right side-nav" id="side-nav">
-					<li><a href="sass.html">Sass</a></li>
-					<li><a href="badges.html">Components</a></li>
-					<li><a href="collapsible.html">Javascript</a></li>
-					<li><a href="mobile.html">Mobile</a></li>
+					<li><a href="../AuctionVer5"><i class="material-icons left">home</i>Home</a></li>
+					<!-- <li><a href="bids.php"><i class="material-icons left">account_circle</i>My Bids</a></li> -->
+					<li><a href="cart.php"><i class="material-icons left">shopping_cart</i>Cart</a></li>
+					<li><a href="#!" class="dropdown-button" data-beloworigin="true" data-activates="dropdown_options"><i class="material-icons left">account_circle</i><?php echo $_SESSION['userName']?></a></li>
+					<li><a href="logout.php">Logout</a></li>
 				</ul>
 				<ul id="dropdown_options" class="dropdown-content">
 					<li><a class="black-text" href="account.php">Customer Information</a></li>

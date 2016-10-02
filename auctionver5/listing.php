@@ -84,7 +84,8 @@
 						 					ON tbl_items.itemId = tbl_Item.itemId
 						 					INNER JOIN tbl_Auctionitems
 						 					ON tbl_Auctionitems.item_ID = tbl_Items.item_ID
-						 					WHERE tbl_Auctionitems.auction_ID = $auctionid");
+						 					WHERE tbl_Auctionitems.auction_ID = $auctionid
+						 					AND tbl_Images.deleted = 0");
 						 if(!mysql_num_rows($getimg)==0){
 						 	while($get_img = mysql_fetch_assoc($getimg)){
 								?>

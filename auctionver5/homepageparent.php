@@ -24,8 +24,15 @@
 		<nav class="navbar-fixed">
 			<div class="nav-wrapper black ">
 				<img src = 'homepage/logo.png' class = 'brand-logo' height="60" width="60"> </img>
+				<a href="#" data-activates="side-nav" class="right button-collapse"><i class="material-icons">menu</i></a>
+
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<a href='../AuctionVer5' > <label class="sys"> PAWNSHOP AUCTION SYSTEM</label> </a>
+					<li><a class="modal-trigger" href="#modal1" data-target="modal1">Login</a></li>
+					<li><a href="registration.php">Register</a></li>
+				</ul>
+
+				<ul class="right side-nav" id="side-nav">
 					<li><a class="modal-trigger" href="#modal1" data-target="modal1">Login</a></li>
 					<li><a href="registration.php">Register</a></li>
 				</ul>
@@ -48,7 +55,7 @@
 					</div>
 					<div class="row">
 						<div class="col l6 m6 s12">	
-							<button class="btn black waves-effect waves-light" type="submit" name="submit">Submit
+							<button class="btn black waves-effect waves-light" type="submit" name="submit">Login
 								<i class="material-icons right">send</i>
 							</button>
 						</div>	
@@ -68,12 +75,13 @@
 
 <script type="text/javascript">
 
-  	$('.modal-trigger').leanModal({
+ 	$('.modal-trigger').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
       opacity: .5, // Opacity of modal background
       in_duration: 300, // Transition in duration
       out_duration: 200, // Transition out duration
-    })
+    }
+  );
     
 	$(document).ready(function() {
 		Materialize.updateTextFields();
@@ -84,6 +92,9 @@
 		$('.slider').slider({full_width: true});
 	});
 
+  	$(document).ready(function(){
+  		$('.button-collapse').sideNav();	
+	});
 
 	
 </script>

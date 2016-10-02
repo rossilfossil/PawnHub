@@ -94,7 +94,7 @@
 		<div class="row row-width1" >
 		<div class="col l3">
 
-			<button class="btn black white-text waves-effect waves-light" type="submit" name="submit">Submit
+			<button class="btn black white-text waves-effect waves-light" type="submit" name="submit">Register
 				<i class="material-icons right">send</i>
 			</button>
 			</div>
