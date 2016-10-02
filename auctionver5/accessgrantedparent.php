@@ -35,11 +35,20 @@
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
 				<ul class="right side-nav" id="side-nav">
-					<li><a href="../AuctionVer5"><i class="material-icons left">home</i>Home</a></li>
-					<!-- <li><a href="bids.php"><i class="material-icons left">account_circle</i>My Bids</a></li> -->
-					<li><a href="cart.php"><i class="material-icons left">shopping_cart</i>Cart</a></li>
-					<li><a href="#!" class="dropdown-button" data-beloworigin="true" data-activates="dropdown_options"><i class="material-icons left">account_circle</i><?php echo $_SESSION['userName']?></a></li>
-					<li><a href="logout.php">Logout</a></li>
+		 			<ul class="collapsible black" data-collapsible="accordion">
+					<li><a class="white-text" href="../AuctionVer5" style="margin-left:12px;"><i class="material-icons left">home</i>Home</a></li>
+					<li><a class="white-text" href="cart.php" style="margin-left:12px;"><i class="material-icons left">shopping_cart</i>Cart</a></li>
+
+    					<li>
+      						<div class="collapsible-header"><i class="material-icons">account_circle</i><?php echo $_SESSION['userName']?></div>
+     						<div class="collapsible-body black-text">
+								<a class="black-text" href="account.php">Customer Information</a>
+								<a class="black-text" href="bids.php">My Bids</a>
+								<a class="black-text" href="checkout_list.php">My Checkouts</a>
+     						</div>
+						</li>
+					<li><a class="white-text" href="logout.php" style="margin-left:12px;">Logout</a></li>
+					</ul>
 				</ul>
 				<ul id="dropdown_options" class="dropdown-content">
 					<li><a class="black-text" href="account.php">Customer Information</a></li>
