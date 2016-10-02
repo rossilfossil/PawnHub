@@ -50,7 +50,7 @@
 			$id = $get_row['auction_ID'];
 			$datecheck = $get_row['end_date'];
 			$timecheck = $get_row['end_time'];
-			echo $id;
+			// echo $datecheck;
 			if(strtotime($datecheck) <= strtotime(date("Y-m-d"))){
 				if(strtotime($datecheck) == strtotime(date("Y-m-d"))){
 					if(strtotime($timecheck) <= strtotime(date("G:i:s"))){
@@ -60,15 +60,15 @@
 				if(strtotime($datecheck) < strtotime(date("Y-m-d"))){
 					enddate($id);
 				}
-				else{
-					return;
-				}
+				//else{
+				//	return;
+				//}
 			}
-			else{
-				return;
-			}
+			//else{
+			//	return;
+			//}
 		}	
 	}
-	else{
-		return;
-	}
+	//else{
+	//	return;
+	//}

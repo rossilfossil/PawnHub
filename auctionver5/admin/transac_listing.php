@@ -1,5 +1,10 @@
 <?php
 	include('../connect_to_pms.php');
+	if(!isset($_SESSION['branchId'])){
+		include("adminhomeparent.php");
+        echo "<br><br><br><br><br><br><br><center><h1>You have no access to this page</h1></center>";
+		return;		
+	}
 	include('adminparent.php');
 	$get = mysql_query("SELECT * FROM tbl_Items
 						INNER JOIN tbl_Item
@@ -232,7 +237,7 @@ $(document).ready(function(){
 			<h5>START</h5>
 				<br>
 	    	<div class="input-field col l6 m6 s12">
-				<input name="startdate" id="startdate" min="<?php echo date('Y-m-d');?>" oninput="onchange=setMaxDate(this.value);document.getElementById('enddate').min=this.value;" type="date" class="validate">
+				<input name="startdate" id="startdate" min="<?php echo date('Y-m-d');?>" oninput="setMaxDate(this.value);document.getElementById('enddate').min=this.value;" type="date" class="validate">
 				<label class="black-text active" for="startdate">Start Date</label>
 			</div>
 	    	<div class="input-field col l6 m6 s12">

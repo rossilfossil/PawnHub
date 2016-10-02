@@ -44,15 +44,15 @@
 				if(strtotime($datecheck) < strtotime(date("Y-m-d"))){
 						deadline($id);
 				}
-				else{
-					return;
-				}
+				//else{
+					//return;
+			//	}
 			}
-			 else{
-				 return;
-			 }
+			 //else{
+				 //return;
+			// }
 		}	
 	}
-	 else{
-		 return;
-	}
+	 //else{
+		 //return;
+	//}

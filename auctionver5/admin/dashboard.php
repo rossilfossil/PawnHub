@@ -1,6 +1,12 @@
 <?php
 	include("../connect_to_pms.php");
+	if(!isset($_SESSION['branchId'])){
+		include("adminhomeparent.php");
+        echo "<br><br><br><br><br><br><br><center><h1>You have no access to this page</h1></center>";
+		return;		
+	}
 	include("adminparent.php");
+
 	$numitems = mysql_num_rows(mysql_query("SELECT * FROM tbl_Items
 													INNER JOIN tbl_Item
 													ON tbl_Items.itemId = tbl_Item.itemId

@@ -1,5 +1,12 @@
 <?php
     include('connect_to_pms.php');
+    if(isset($_SESSION['branchId'])){
+      echo "
+          <script>
+          window.location.href = 'admin/dashboard.php';
+          </script>
+        ";    
+    }
     if(isset($_SESSION['userId'])){
         echo "
           <script>

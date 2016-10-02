@@ -1,13 +1,12 @@
 <?php
 	include('../connect_to_pms.php');
+	if(!isset($_SESSION['branchId'])){
+		include("adminhomeparent.php");
+        echo "<br><br><br><br><br><br><br><center><h1>You have no access to this page</h1></center>";
+		return;		
+	}
 	include('adminparent.php');
-	if(isset($_SESSION['branchId'])){	
-		$branch = $_SESSION['branchId'];
-	}
-	else{
-		echo "<h3><center>Please Login!</center></h3>";
-		return;
-	}
+
 	//
 //cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js
 //cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js

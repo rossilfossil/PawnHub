@@ -13,13 +13,13 @@
 
 	<link rel="stylesheet" type="text/css" href="../css/mycss.css">		
 </head>
-<body class="" style="background: url('../../capstone/image/BG2.jpg') no-repeat;background-size:cover;">
+<body class="" style="background: url('..//homepage/bg1.jpg') no-repeat;background-size:cover;">
 	<header>
 		<nav>
 			<div class="nav-wrapper black">
 				<img src = '../homepage/logo.png' class = 'brand-logo' height="60" width="60"></img>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">					
-				<a href='../admin' > <label class="sys"> PAWNSHOP AUCTION SYSTEM</label> </a>
+				<a href='../' > <label class="sys"> PAWNSHOP AUCTION SYSTEM</label> </a>
 				</ul>
 			</div>
 		</nav>

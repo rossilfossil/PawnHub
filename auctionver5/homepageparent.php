@@ -18,7 +18,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/mycss.css">		
 </head>
-<body class="myfont" style="background: url('../../capstone/image/BG.jpg') no-repeat fixed;background-size:cover;">
+<body class="myfont" style="background: url('homepage/bg.jpg') no-repeat fixed;background-size:cover;">
 
 	<header class="navbar-fixed">
 		<nav class="navbar-fixed">

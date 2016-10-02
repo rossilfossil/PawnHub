@@ -2,11 +2,11 @@
     include('connect_to_pms.php');
 
     $_SESSION['redirect']="home.php";
-	if(!isset($_SESSION['userId'])){
+	if(!isset($_SESSION['userName'])){
         include('homepageparent.php');
     }
     else{ 
-        $user = $_SESSION['userId'];
+        $user = $_SESSION['userName'];
         include('accessgrantedparent.php');
     }
     include "schedulechecker.php";
