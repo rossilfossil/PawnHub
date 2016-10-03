@@ -2,6 +2,7 @@
     include('connect_to_pms.php');
 	// check if logged in, if yes, redirect to home.php
 	include('homepageparent.php');
+	include('../email/samplemail.php');
 ?>
 <script type="text/javascript" src="admin/getCity.js"></script>
 <script type="text/javascript" src="admin/validation.js"></script>
@@ -128,6 +129,15 @@ password.onkeyup = validatePassword;
 
 	<?php
 		if(isset($_POST['submit'])){	
+			function generateRandomString($length = 10) {
+			    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			    $charactersLength = strlen($characters);
+			    $randomString = '';
+			    for ($i = 0; $i < $length; $i++) {
+			        $randomString .= $characters[rand(0, $charactersLength - 1)];
+			    }
+			    return $randomString;
+			}
             $firstname = addslashes(htmlspecialchars(ucwords(strtolower(trim($_POST['firstname'])))));
             $middlename = addslashes(htmlspecialchars(ucwords(strtolower(trim($_POST['middlename'])))));
             $lastname = addslashes(htmlspecialchars(ucwords(strtolower(trim($_POST['lastname'])))));
@@ -140,9 +150,19 @@ password.onkeyup = validatePassword;
             $email = trim($_POST['email']);
             $username = trim($_POST['username']);
             $password = trim($_POST['password']);    
-			$sql = "INSERT INTO tbl_Bidders(bidder_firstname,bidder_middlename,bidder_lastname,bidder_province,bidder_city,bidder_barangay,bidder_street,bidder_housenumber,bidder_contact,bidder_email,bidder_username,bidder_password) values('$firstname','$middlename','$lastname','$province','$city','$barangay','$street','$housenumber','$contact','$email','$username','$password')";
+            $regdate = date("Y-m-d");
+            $regtime = date("G:i:s");
+            $vercode = generateRandomString();
+			$sql = "INSERT INTO tbl_Bidders(bidder_firstname,bidder_middlename,bidder_lastname,bidder_province,bidder_city,bidder_barangay,bidder_street,bidder_housenumber,bidder_contact,bidder_email,bidder_username,bidder_password,registration_date,registration_time,verification_code,status) values('$firstname','$middlename','$lastname','$province','$city','$barangay','$street','$housenumber','$contact','$email','$username','$password','$regdate','$regtime','$vercode','0')";
+			// var_dump($sql);
 			$res = mysql_query($sql) or die("Error in Query: ".mysql_error());
-			
+			$message = "Thank you for your interest in the Pawnshop-Auction System!<br><br>
+						Verify your account so you can enjoy bidding<br><br>
+						Your Verification code is <b>$vercode</b><br><br>
+
+			";
+			sendEmail($receiver,$message);
+
 			$get = mysql_fetch_assoc(mysql_query("SELECT * FROM tbl_Bidders ORDER BY bidder_ID DESC LIMIT 1"));
 			$id = $get['bidder_ID'];
 			$name = $get['bidder_username'];

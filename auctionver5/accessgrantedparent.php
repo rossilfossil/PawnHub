@@ -42,18 +42,21 @@
     					<li>
       						<div class="collapsible-header"><i class="material-icons">account_circle</i><?php echo $_SESSION['userName']?></div>
      						<div class="collapsible-body black-text">
-								<a class="black-text" href="account.php">Customer Information</a>
+								<a class="black-text" href="account.php">My Information</a>
 								<a class="black-text" href="bids.php">My Bids</a>
 								<a class="black-text" href="checkout_list.php">My Checkouts</a>
+								<a class="black-text" href="form-verification.php">Verify Account</a>
      						</div>
 						</li>
 					<li><a class="white-text" href="logout.php" style="margin-left:12px;">Logout</a></li>
 					</ul>
 				</ul>
 				<ul id="dropdown_options" class="dropdown-content">
-					<li><a class="black-text" href="account.php">Customer Information</a></li>
+					<li><a class="black-text" href="account.php">My Information</a></li>
 					<li><a class="black-text" href="bids.php">My Bids</a></li>
 					<li><a class="black-text" href="checkout_list.php">My Checkouts</a></li>
+					<li><a class="black-text" href="form-verification.php">Verify Account</a></li>
+
 				</ul>
 			</div>		
 		</nav>

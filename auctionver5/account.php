@@ -128,7 +128,6 @@
     </script>
 <?php
     if(isset($_POST['submit'])){
-        echo "shit";
         $firstname = addslashes(htmlspecialchars(ucwords(strtolower(trim($_POST['firstname'])))));
         $middlename = addslashes(htmlspecialchars(ucwords(strtolower(trim($_POST['middlename'])))));
         $lastname = addslashes(htmlspecialchars(ucwords(strtolower(trim($_POST['lastname'])))));

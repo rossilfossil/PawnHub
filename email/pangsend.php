@@ -10,7 +10,7 @@ include "samplemail.php";
 </head>
 <body>
 <form action="" method="POST">
-		<input type="text" name="email">
+		<input type="text" name="email" value="awtssur@gmail.com">
 		<input type="submit" name="submit" value="submit">
 </form>
 
@@ -22,7 +22,12 @@ include "samplemail.php";
 		if(isset($_POST['submit'])){
 
 			$receiver = $_POST['email'];
-			sendEmail($receiver);
+			echo $receiver;
+			$message = "Thank you for your interest in the Pawnshop-Auction System<br><br>
+			<a href='localhost/pawnhub/auctionver5'> PMS </a>
+
+			";
+			sendEmail($receiver,$message);
 		}
 		// put 2 sec timer here
 		// CHIKKA API SHORTCODE 29290 06214

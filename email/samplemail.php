@@ -18,7 +18,7 @@ function sendEmail($receiver,$message){
 	$mail->Port = 587;                                    // TCP port to connect to
 
 	$mail->setFrom('pawnshopms41n@gmail.com', 'Auction');
-	$mail->addAddress($receiver, 'Joe User');     // Add a recipient
+	$mail->addAddress($receiver, 'PMS-Auction Admin');     // Add a recipient
 	//$mail->addAddress('ellen@example.com');               // Name is optional
 	//$mail->addReplyTo('info@example.com', 'Information');
 	//$mail->addCC('cc@example.com');

@@ -1,6 +1,6 @@
 <?php
     include('connect_to_pms.php');
-	include "../email/samplemail.php";
+	include('../email/samplemail.php');
 
 	$auctionId = $_POST['auctionID'];
 
@@ -16,12 +16,12 @@
 						");
 		if (!mysql_num_rows($get)==0){
 			$action = 2; // ended with winner
-			 $get_row = mysql_fetch_assoc($get);
+			$get_row = mysql_fetch_assoc($get);
 			$bid = $get_row['bid_ID'];
 			$sql = "UPDATE tbl_Bids SET bid_status = 3 WHERE bid_ID = $bid";
 			$bidder_email = $get_row['bidder_email'];
 			$deadline = date("M jS, Y", strtotime($get_row['deadline_date']))." ".date("g:i:s a", strtotime($get_row['deadline_time']));
-			$message = "You have won an auction with a price of P". $amount. ". Please commit checkout before ".$deadline."";
+			$message = "You have won an auction with a price of P ". $bid. ".<br><br>Please commit checkout before ".$deadline."";
 			sendEmail($bidder_email,$message);
 			$res = mysql_query($sql) or die("Error in Query: ".mysql_error());
 		}	

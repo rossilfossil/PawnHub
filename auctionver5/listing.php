@@ -7,9 +7,13 @@
 	if(!isset($_SESSION['userId'])){
         include('homepageparent.php');
         $user=-1;
+        $status=-1;
     }
     else{ 
         $user = $_SESSION['userId'];
+	    $get_bidder = mysql_fetch_assoc(mysql_query("SELECT * FROM tbl_Bidders 
+                                                       WHERE bidder_ID = $user"));
+	    $status = $get_bidder['status'];
         include('accessgrantedparent.php');		
     }
 
@@ -20,7 +24,6 @@
 		echo "<center><h1>No Listing selected!</h1></center>";
 		return;
 	} // checks if there is a listing selected
-
 	$get=mysql_query("SELECT * FROM tbl_Auctions 
 		INNER JOIN tbl_Increments
 		ON tbl_Auctions.increment_ID = tbl_Increments.increment_ID
@@ -300,6 +303,11 @@ if(<?php echo $user?> == -1){
 	document.getElementById('notification').innerHTML = "<center><h4>Please Log in to Place Bid</h4></center>";
 }	
 
+if(<?php echo $status?> == 0){
+	document.getElementById('submitbid').disabled = true;
+	document.getElementById('bid').disabled = true;
+	document.getElementById('notification').innerHTML = "<center><h4>Please Verify Account to Place Bid</h4></center>";
+}
 // check Auction Status
 if (<?php echo $auctionstatus?> == 1){
 	<?php
