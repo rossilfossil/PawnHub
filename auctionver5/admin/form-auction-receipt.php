@@ -5,26 +5,8 @@ require('../fpdi/fpdi.php');
 
 // initiate FPDI
 $pdf = new FPDI();
-// get the page count
-$pageCount = $pdf->setSourceFile('../pdf/cash_receipt.pdf');
-// iterate through all pages
-for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
-    // import a page
-    $templateId = $pdf->importPage($pageNo);
-    // get the size of the imported page
-    $size = $pdf->getTemplateSize($templateId);
 
-    // create a page (landscape or portrait depending on the imported page size)
-    if ($size['w'] > $size['h']) {
-        $pdf->AddPage('L', array($size['w'], $size['h']));
-    } else {
-        $pdf->AddPage('P', array($size['w'], $size['h']));
-    }
-
-// use the imported page
-$pdf->useTemplate($templateId);
-
-}
+$pdf->addPage();
 
 // initiate query
 
@@ -73,6 +55,7 @@ while($row = mysql_fetch_assoc($res0))
         $lName = $row['bidder_lastname'];
         $fName = $row['bidder_firstname'];
         $mName = $row['bidder_middlename'];
+        $auctionid = $row['auction_ID'];
 }
 
 // session userId
@@ -104,21 +87,50 @@ if (strpos($dword,"point zero zero") == true){
 
 // initiate data
 
-$pdf->SetFont('Arial','B',9);
+$pdf->SetFont('Arial','B',14);
 
-$pdf->Text(99,10,$receiptNo,0,'C');
-$pdf->Text(18,17,$paymentDate,0,'C');
-$pdf->Text(93,17,$refNo,0,'C');
-$pdf->Text(50,26,$cname,0,'C');
-$pdf->Text(30,31,$address,0,'C');
+$pdf->Text(20,20,'PAWNSHOP AUCTION SYSTEM',0,'C');
+$pdf->Text(20,25,'CLIENT\'S COPY',0,'C');
+$pdf->Text(20,40,'Date:',0,'C');
+$pdf->Text(20,50,'Name :',0,'C');
+$pdf->Text(20,55,'Address:',0,'C');
+$pdf->Text(130,20,'Reference Number',0,'C');
+$pdf->Text(130,25,'Receipt Number',0,'C');
 
-$pdf->Text(30,43,$totalamount." pesos(PHP ".$amount.")",0,'C');
-$pdf->Text(30,49,"+delivery fee of ".$dword."pesos(PHP ".$deliveryfee.")",0,'C');
-$pdf->Text(45,56,$purposeOfPayment,0,'C');
+$pdf->SetFont('Arial','B',12);
 
-$pdf->Text(45,63,$uname,0,'C');
+$pdf->Text(180,20,$receiptNo,0,'C');
+$pdf->Text(180,25,$refNo,0,'C');
+$pdf->Text(50,40,$paymentDate,0,'C');
+$pdf->Text(50,50,$cname,0,'C');
+$pdf->Text(50,55,$address,0,'C');
 
+$sql = mysql_query("SELECT * FROM tbl_Items
+                    INNER JOIN tbl_item
+                    ON tbl_Items.itemId = tbl_Item.itemId
+                    INNER JOIN tbl_Auctionitems
+                    ON tbl_Items.item_ID = tbl_Auctionitems.item_ID
+                    INNER JOIN tbl_Auctions
+                    ON tbl_Auctionitems.auction_ID = tbl_Auctions.auction_ID
+                    WHERE tbl_Auctionitems.auction_ID = $auctionid");
+$pdf->Text(70,70,'Description',0,'C');
+$pdf->Text(150,70,'Price',0,'C');
+$x = 80;
+if(!mysql_num_rows($sql)==0){
+    while($getitem = mysql_fetch_assoc($sql)){
+        $pdf->Text(70,$x,$getitem['itemName'],0,'C');
+        $pdf->Text(150,$x,$getitem['current_price'],0,'C');
+
+        $x = $x + 5;
+    }
+}   
+$x = $x + 5;
+$pdf->Text(110,$x,'SubTotal:',0,'C');
+$pdf->Text(110,$x+5,'Delivery Fee:',0,'C');
+$pdf->Text(110,$x+10,'Total:',0,'C');
+$pdf->Text(150,$x,$amount,0,'C');
+$pdf->Text(150,$x + 5,$deliveryfee,0,'C');
+$pdf->Text(150,$x + 10,$amount+$deliveryfee,0,'C');
 
 $pdf->Output();
-
 ?>
